@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Wheel with Probabilities</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="notification" class="notification"></div>
+
+        <div class="wheel-container">
+            <canvas id="wheel" width="400" height="400"></canvas>
+            <button id="spin-btn">SPIN</button>
+        </div>
+
+        <div class="input-section">
+            <input type="text" id="item-input" placeholder="Add item">
+            <button id="add-btn">Add Item</button>
+            <button id="clear-btn">Clear All</button>
+            <button id="show-rules">Show Rules</button>
+            <button id="admin-trigger" class="admin-trigger">Admin Panel</button>
+        </div>
+
+        <div class="items-list">
+            <h3>Current Items:</h3>
+            <ul id="items-display"></ul>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="admin-panel" class="admin-panel">
+        <h2>Admin Panel</h2>
+        <div class="admin-controls">
+            <div class="control-group">
+                <label>Minimum Spin Time (seconds):</label>
+                <input type="number" id="min-spin-time" value="3">
+            </div>
+            <div class="control-group">
+                <label>Maximum Spin Time (seconds):</label>
+                <input type="number" id="max-spin-time" value="6">
+            </div>
+            <div class="control-group">
+                <label>Maximum Items:</label>
+                <input type="number" id="max-items" value="12">
+            </div>
+
+            <!-- Probability Controls -->
+            <div class="probability-controls">
+                <h3>Item Probabilities</h3>
+                <div id="probability-list"></div>
+                <p>Total: <span id="total-probability">0</span>%
+                    <span id="probability-warning" style="color: red;"></span>
+                </p>
+            </div>
+
+            <div class="control-group">
+                <label>Custom Rules Message:</label>
+                <textarea id="rules-message" rows="4"></textarea>
+            </div>
+            <button id="save-admin">Save Settings</button>
+            <button id="close-admin">Close</button>
+        </div>
+    </div>
+
+    <!-- Rules Modal -->
+    <div id="rules-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Wheel Rules</h2>
+            <div id="rules-content"></div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
